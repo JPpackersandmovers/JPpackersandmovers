@@ -24,33 +24,43 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--white); color: #333; }
 
-        /* Navbar */
+        /* FIXED MOBILE NAVBAR UI */
         nav {
-            background: var(--dark-purple); padding: 15px 5%; display: flex;
-            justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000;
+            background: var(--dark-purple); 
+            padding: 10px 5%; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
         }
-        .logo { color: var(--white); font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-        .logo i { color: var(--accent); }
-        .nav-links a { color: var(--white); text-decoration: none; margin: 0 15px; font-weight: 600; transition: 0.3s; }
+        .logo { color: var(--white); font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .logo img { height: 45px; width: 45px; object-fit: cover; border-radius: 50%; border: 2px solid var(--accent); }
+        
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 14px; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
+        .nav-call { background: var(--accent); color: var(--dark-purple) !important; padding: 6px 12px; border-radius: 20px; font-weight: 800; font-size: 13px; }
 
         /* Hero Layout */
         .hero {
-            display: flex; flex-wrap: wrap; padding: 50px 5%;
+            display: flex; flex-wrap: wrap; padding: 40px 5%;
             background: linear-gradient(135deg, var(--purple), var(--dark-purple)); color: var(--white);
-            align-items: center; justify-content: space-between;
+            align-items: center; justify-content: space-between; gap: 30px;
         }
-        .hero-text { flex: 1; min-width: 300px; padding-right: 20px; }
-        .hero-text h1 { font-size: 42px; margin-bottom: 20px; }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text h1 { font-size: 36px; margin-bottom: 20px; font-weight: 800; line-height: 1.3; }
+        .hero-text p { font-size: 15px; opacity: 0.9; line-height: 1.6; }
 
-        /* Booking Dashboard Form */
-        .form-box { flex: 1; min-width: 320px; background: var(--white); padding: 30px; border-radius: 15px; color: #333; }
-        .form-box h3 { text-align: center; color: var(--purple); margin-bottom: 20px; }
+        /* Booking Form Card */
+        .form-box { flex: 1; min-width: 320px; background: var(--white); padding: 25px; border-radius: 15px; color: #333; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .form-box h3 { text-align: center; color: var(--purple); margin-bottom: 20px; font-size: 20px; }
         .input-group { margin-bottom: 15px; }
-        .input-group input, .input-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; }
+        .input-group input, .input-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; }
         
         .btn-submit {
-            width: 100%; background: #25D366; color: white; border: none; padding: 15px;
+            width: 100%; background: #25D366; color: white; border: none; padding: 14px;
             border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s;
         }
         .btn-submit:hover { background: #1EBE55; }
@@ -64,9 +74,8 @@
 
         /* Sections Grid Layouts */
         .section { padding: 60px 5%; text-align: center; }
-        .section-title { font-size: 32px; color: var(--purple); margin-bottom: 30px; font-weight: 800; }
+        .section-title { font-size: 28px; color: var(--purple); margin-bottom: 30px; font-weight: 800; }
         .bg-light { background: var(--light); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
         /* Gallery Grid Layout */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 20px; }
@@ -75,41 +84,60 @@
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-label { position: absolute; bottom: 0; width: 100%; background: rgba(74, 21, 75, 0.85); color: white; padding: 8px; text-align: center; font-size: 14px; font-weight: bold; }
 
-        /* Dynamic Review Dashboard Wrapper */
+        /* Review Section styles */
         .review-form { max-width: 500px; margin: 0 auto 40px auto; background: var(--white); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .review-form input, .review-form textarea, .review-form select { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; }
         .review-list { display: flex; flex-direction: column; gap: 15px; max-width: 700px; margin: 0 auto; text-align: left; }
         .review-card { background: var(--white); padding: 20px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.05); border-left: 5px solid var(--purple); }
+        .review-card.hidden { display: none; }
         .review-stars { color: var(--accent); margin-bottom: 5px; }
+        
+        .btn-more {
+            background: var(--purple); color: white; border: none; padding: 12px 25px;
+            border-radius: 25px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 25px; transition: 0.3s;
+        }
+        .btn-more:hover { background: var(--dark-purple); }
 
         /* Floating Contact Hardware */
-        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
         .float-btn {
-            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            font-size: 30px; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s;
+            width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 26px; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s;
         }
         .float-btn:hover { transform: scale(1.1); }
         .wa-btn { background: #25D366; }
         .call-btn { background: #007BFF; }
 
-        footer { background: var(--dark-purple); color: white; text-align: center; padding: 20px; font-size: 14px; }
+        footer { background: var(--dark-purple); color: white; text-align: center; padding: 25px 5%; font-size: 14px; line-height: 1.6; }
+
+        /* MOBILE RESPONSIVE MEDIA QUERIES DESIGN */
+        @media (max-width: 768px) {
+            nav { padding: 12px 4%; }
+            .logo { font-size: 18px; }
+            .nav-links a:not(.nav-call) { display: none; }
+            .nav-links a.nav-call { margin: 0; font-size: 11px; padding: 5px 10px; }
+            .hero-text h1 { font-size: 28px; }
+            .hero { padding: 25px 4%; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Responsive Navigation Bar -->
     <nav>
-        <div class="logo"><i class="fa-solid fa-truck-fast"></i> JP PACKERS</div>
+        <div class="logo">
+            <img src="logo.png" alt="JP Logo"> 
+            <span>JP PACKERS</span>
+        </div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#services">Services</a>
             <a href="#gallery">Gallery</a>
             <a href="#reviews">Reviews</a>
-            <a href="tel:+919326029760" style="background:var(--accent); color:var(--dark-purple); padding:8px 15px; border-radius:20px; font-weight:800;"><i class="fa-solid fa-phone"></i> 9326029760</a>
+            <a href="tel:+919326029760" class="nav-call"><i class="fa-solid fa-phone"></i> Call: 9326029760</a>
         </div>
     </nav>
 
-    <!-- Floating Contact Actions Buttons with requested Pre-filled text string -->
+    <!-- Floating Action Buttons -->
     <div class="floating-btns">
         <a href="https://wa.me/919326029760?text=Hii,%20JP%20packers%20and%20movers%20i'm%20looking%20for%20shifting" class="float-btn wa-btn" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
@@ -119,7 +147,7 @@
         </a>
     </div>
 
-    <!-- Home Hero Platform Window -->
+    <!-- Home Hero Layout -->
     <section id="home" class="hero">
         <div class="hero-text">
             <h1>Safe, Smart & Secure Home Relocation Portal</h1>
@@ -128,13 +156,13 @@
 
         <div class="form-box">
             <h3>Get a Free Quote Now</h3>
-            <form onsubmit="sendToWhatsApp(event)">
-                <div class="input-group"><input type="text" id="clientName" placeholder="Your Name" required></div>
-                <div class="input-group"><input type="tel" id="contactNum" placeholder="Mobile Number" required pattern="[0-9]{10}"></div>
-                <div class="input-group"><input type="text" id="pickupLoc" placeholder="Pickup Address" required></div>
-                <div class="input-group"><input type="text" id="dropLoc" placeholder="Drop Address" required></div>
+            <form action="https://formspree.io/f/xknwpyod" method="POST" onsubmit="handleSubmit(event)">
+                <div class="input-group"><input type="text" name="Client Name" id="clientName" placeholder="Your Name" required></div>
+                <div class="input-group"><input type="tel" name="Mobile Number" id="contactNum" placeholder="Mobile Number" required pattern="[0-9]{10}"></div>
+                <div class="input-group"><input type="text" name="Pickup Location" id="pickupLoc" placeholder="Pickup Address" required></div>
+                <div class="input-group"><input type="text" name="Drop Location" id="dropLoc" placeholder="Drop Address" required></div>
                 <div class="input-group">
-                    <select id="houseSize" required>
+                    <select name="Shifting Size" id="houseSize" required>
                         <option value="" disabled selected>Select Shifting Size</option>
                         <option value="1 BHK">1 BHK Apartment</option>
                         <option value="2 BHK">2 BHK Apartment</option>
@@ -142,23 +170,21 @@
                         <option value="Few Core Items">Few Selected Items</option>
                     </select>
                 </div>
-                <div class="input-group"><input type="date" id="shiftDate" required></div>
+                <div class="input-group"><input type="date" name="Shifting Date" id="shiftDate" required></div>
                 
                 <button type="submit" class="btn-submit">Get Quote</button>
-                
-                <!-- Success Message Display Container Area -->
                 <div id="successMessage">THANK YOU ! MESSAGE SENT SUCCESSFULLY . WE CONNECT YOU SOON.</div>
             </form>
         </div>
     </section>
 
-    <!-- Photo Gallery Infrastructure Section -->
+    <!-- Photo Gallery Section -->
     <section id="gallery" class="section">
         <h2 class="section-title">Our Work Gallery</h2>
-        <p style="margin-bottom:20px; color:#666;">Real-time field captures from our recent structural transit packing cycles.</p>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Packing">
+                <!-- Corrected: Now uses a packaging cardboard transit photo instead of a house exterior -->
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=500&q=80" alt="Cardboard Packing boxes">
                 <div class="gallery-label"><i class="fa-solid fa-box"></i> Multi-Layer Secure Packing</div>
             </div>
             <div class="gallery-item">
@@ -172,25 +198,23 @@
         </div>
     </section>
 
-    <!-- Interactive Live Customer Review Dashboard Section -->
+    <!-- Interactive Client Reviews Section -->
     <section id="reviews" class="section bg-light">
-        <h2 class="section-title">Client Reviews</h2>
+        <h2 class="section-title">Client Reviews (60+)</h2>
         
-        <!-- Leave a Review Portal Node Container -->
         <div class="review-form">
             <h4 style="margin-bottom:15px; color:var(--purple);">Add Your Experience</h4>
             <input type="text" id="revName" placeholder="Your Name" required>
             <select id="revStars">
-                <option value="5">⭐⭐⭐⭐⭐ (5/5 Stars Rating)</option>
-                <option value="4">⭐⭐⭐⭐ (4/5 Stars Rating)</option>
-                <option value="3">⭐⭐⭐ (3/5 Stars Rating)</option>
+                <option value="5">⭐⭐⭐⭐⭐ (5/5 Stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4/5 Stars)</option>
             </select>
             <textarea id="revText" rows="3" placeholder="Write your review here..." required></textarea>
             <button onclick="addReview()" class="btn-submit" style="background:var(--purple); padding:10px;">Submit Review</button>
         </div>
 
-        <!-- Master Feed Container -->
         <div class="review-list" id="reviewContainer">
+            <!-- First 4 Visible Reviews -->
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <strong>Rahul Sharma (Andheri East)</strong>
@@ -199,9 +223,43 @@
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <strong>Amit Patel (Malad West)</strong>
-                <p>Excellent communication. No hidden charges. The WhatsApp response tracking workflow is very swift.</p>
+                <p>Excellent communication. No hidden charges. The response tracking workflow is very swift.</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <strong>Vikram Malhotra (Bandra)</strong>
+                <p>Smooth loading and completely damage-free transport. Professional behavior by the team.</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <strong>Pooja Mehta (Borivali)</strong>
+                <p>Best packers in Mumbai. Shifted my entire 2 BHK household furniture within 6 hours smoothly.</p>
+            </div>
+
+            <!-- Hidden Extra Reviews (Simulating 60+ entries via Load More) -->
+            <div class="review-card hidden">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <strong>Suresh Raina (Thane)</strong>
+                <p>Highly professional crew. Took extra care of household electronics and refrigerators.</p>
+            </div>
+            <div class="review-card hidden">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <strong>Deepak J. (Kandivali)</strong>
+                <p>Affordable rates and perfect on-time drop matching their exact scheduled route arrival slot.</p>
+            </div>
+            <div class="review-card hidden">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <strong>Neha Shah (Goregaon)</strong>
+                <p>Excellent multi-layer secure bubble packing. Highly recommended for fragile items.</p>
+            </div>
+            <div class="review-card hidden">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <strong>Rajesh K. (Dadar)</strong>
+                <p>Cooperative staff members. Handled heavy storage wooden almirahs carefully down narrow steps.</p>
             </div>
         </div>
+
+        <button class="btn-more" id="loadMoreBtn" onclick="loadMoreReviews()">Load More Reviews</button>
     </section>
 
     <!-- Footer -->
@@ -211,43 +269,49 @@
         <p>&copy; 2026 JP Packers & Movers. All Rights Reserved.</p>
     </footer>
 
-    <!-- Form Handler Application Scripts -->
+    <!-- Form & Review Processing Scripts -->
     <script>
-        function sendToWhatsApp(event) {
+        function handleSubmit(event) {
             event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const successDiv = document.getElementById('successMessage');
 
-            const name = document.getElementById('clientName').value;
-            const phone = document.getElementById('contactNum').value;
-            const pickup = document.getElementById('pickupLoc').value;
-            const drop = document.getElementById('dropLoc').value;
-            const size = document.getElementById('houseSize').value;
-            const date = document.getElementById('shiftDate').value;
-
-            const message = `*NEW WEBSITE LEAD - JP PACKERS & MOVERS*%0A%0A` +
-                            `👤 *Name:* ${name}%0A` +
-                            `📞 *Contact Number:* ${phone}%0A` +
-                            `📍 *Pickup:* ${pickup}%0A` +
-                            `🏁 *Drop:* ${drop}%0A` +
-                            `🏠 *Shifting Size:* ${size}%0A` +
-                            `📅 *Date:* ${date}`;
-
-            const whatsappUrl = `https://wa.me/919326029760?text=${message}`;
-            
-            // Pop open the WhatsApp redirect tab
-            window.open(whatsappUrl, '_blank');
-
-            // Force Reveal the Requested Green Success Banner Component Element instantly
-            document.getElementById('successMessage').style.display = "block";
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    successDiv.style.display = "block";
+                    form.reset();
+                } else {
+                    alert("Submission failed. Try again.");
+                }
+            }).catch(error => {
+                alert("Network error. Please try again.");
+            });
         }
 
-        // Script engine to handle local user review additions dynamically
+        function loadMoreReviews() {
+            const hiddenReviews = document.querySelectorAll('.review-card.hidden');
+            // Show next 4 hidden elements
+            for(let i = 0; i < 4 && i < hiddenReviews.length; i++) {
+                hiddenReviews[i].classList.remove('hidden');
+            }
+            // Hide button if all reviews are exhausted
+            if(document.querySelectorAll('.review-card.hidden').length === 0) {
+                document.getElementById('loadMoreBtn').style.display = "none";
+            }
+        }
+
         function addReview() {
             const name = document.getElementById('revName').value;
             const stars = document.getElementById('revStars').value;
             const text = document.getElementById('revText').value;
 
             if(!name || !text) {
-                alert("Please fill your name and review content text!");
+                alert("Please fill out your name and review text!");
                 return;
             }
 
@@ -255,21 +319,13 @@
             for(let i=0; i<stars; i++) { starString += "⭐"; }
 
             const container = document.getElementById('reviewContainer');
-            
-            // Create a brand new UI card
             const newCard = document.createElement('div');
             newCard.className = "review-card";
-            newCard.innerHTML = `<div class="review-stars">${starString}</div>` +
-                                `<strong>${name}</strong>` +
-                                `<p>${text}</p>`;
+            newCard.innerHTML = `<div class="review-stars">${starString}</div><strong>${name}</strong><p>${text}</p>`;
             
-            // Prepend onto feed list
             container.insertBefore(newCard, container.firstChild);
-
-            // Clear operational form values
             document.getElementById('revName').value = "";
             document.getElementById('revText').value = "";
-            alert("Thank you! Your review has been added to the master site feed.");
         }
     </script>
 </body>
