@@ -3,364 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JP Packers & Movers - Live Booking Portal</title>
-    <!-- FontAwesome for Premium Icons -->
+    
+    <!-- SEO Tags to rank on Google -->
+    <title>JP Packers & Movers | Best Relocation Services in Mumbai</title>
+    <meta name="description" content="JP Packers & Movers provides safe, reliable, and affordable home and office shifting, car/bike transportation, and storage services. Get a free quote today!">
+    <meta name="keywords" content="JP packers and movers, packers and movers in Mumbai, home shifting, office relocation, vehicle transport, best packers">
+    <meta name="author" content="JP Packers & Movers">
+
+    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --purple: #4A154B;
             --dark-purple: #320E33;
             --white: #FFFFFF;
-            --light-gray: #F8F9FA;
-            --text-dark: #222222;
+            --light: #F4F4F9;
+            --accent: #D4AF37; /* Gold */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        body {
-            background-color: var(--light-gray);
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+        body { background-color: var(--white); color: #333; }
 
-        /* App Layout Container (Keeps everything inside like a real app dashboard) */
-        .app-container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--white);
-            border-radius: 24px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(74, 21, 75, 0.1);
-        }
+        /* Smooth Fade In Animation */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { animation: fadeIn 1s ease-out forwards; }
 
-        /* Top Bar Custom Branding Header */
-        .app-header {
-            background: var(--purple);
-            padding: 20px;
-            color: var(--white);
-            text-align: center;
-            border-bottom: 3px solid #D4AF37; /* Subtle gold divider line */
-        }
-
-        .brand-title {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-
-        .brand-tagline {
-            font-size: 12px;
-            opacity: 0.9;
-        }
-
-        /* Main Content App Body */
-        .app-body {
-            padding: 20px;
-            flex-grow: 1;
-        }
-
-        /* Interactive Grid Toggles (NoBroker Style) */
-        .services-section {
-            margin-bottom: 24px;
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--purple);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .service-card {
-            background: var(--light-gray);
-            border: 1px solid #E0E0E0;
-            border-radius: 12px;
-            padding: 12px 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .service-card i {
-            font-size: 20px;
-            color: var(--purple);
-            margin-bottom: 6px;
-        }
-
-        .service-card p {
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        /* Active highlight for services */
-        .service-card.active {
-            background: var(--purple);
-            border-color: var(--purple);
-            color: var(--white);
-        }
-
-        .service-card.active i {
-            color: var(--white);
-        }
-
-        /* Portal Form Dashboard Fields */
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #555;
-        }
-
-        .input-wrapper {
-            position: relative;
-        }
-
-        .input-wrapper i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--purple);
-            font-size: 14px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 12px 12px 38px;
-            border: 1px solid #CCCCCC;
-            border-radius: 12px;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: var(--purple);
-            box-shadow: 0 0 0 3px rgba(74, 21, 75, 0.1);
-        }
-
-        select.form-control {
-            appearance: none;
-        }
-
-        /* Premium Booking Action Button */
-        .btn-submit {
-            width: 100%;
-            background: #25D366; /* WhatsApp Green for instant click-through trust */
-            color: var(--white);
-            border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-submit:hover {
-            background: #20BA56;
-        }
-
-        /* Bottom Fixed Brand Coordinates Block */
-        .app-footer {
+        /* Navbar */
+        nav {
             background: var(--dark-purple);
-            color: var(--white);
-            padding: 20px;
-            text-align: center;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-        .footer-line {
+            padding: 15px 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 6px;
-            opacity: 0.9;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+        .logo { color: var(--white); font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--accent); }
+        .nav-links a { color: var(--white); text-decoration: none; margin: 0 15px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-call { background: var(--accent); color: var(--dark-purple); padding: 8px 15px; border-radius: 20px; font-weight: 800; text-decoration: none;}
 
-        .footer-line i {
-            color: #D4AF37;
+        /* Hero Section (Form & Banner) */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 5%;
+            background: linear-gradient(135deg, var(--purple), var(--dark-purple));
+            color: var(--white);
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-text { flex: 1; min-width: 300px; padding-right: 20px; }
+        .hero-text h1 { font-size: 45px; margin-bottom: 20px; }
+        .hero-text p { font-size: 18px; margin-bottom: 30px; line-height: 1.6; }
+
+        /* Booking Form */
+        .form-box {
+            flex: 1;
+            min-width: 320px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: #333;
+        }
+        .form-box h3 { text-align: center; color: var(--purple); margin-bottom: 20px; }
+        .input-group { margin-bottom: 15px; }
+        .input-group input, .input-group select {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; outline: none;
+        }
+        .btn-submit {
+            width: 100%; background: #25D366; color: white; border: none; padding: 15px;
+            border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit:hover { background: #1EBE55; transform: scale(1.02); }
+
+        /* Sections (About, Services, Process) */
+        .section { padding: 60px 5%; text-align: center; }
+        .section-title { font-size: 32px; color: var(--purple); margin-bottom: 40px; font-weight: 800; }
+        .bg-light { background: var(--light); }
+
+        /* Services Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s; border-bottom: 4px solid var(--purple);
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card i { font-size: 40px; color: var(--purple); margin-bottom: 15px; }
+        .card h4 { font-size: 20px; margin-bottom: 10px; }
+
+        /* Floating Action Buttons */
+        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+        .float-btn {
+            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 30px; color: white; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s;
+        }
+        .float-btn:hover { transform: scale(1.1); }
+        .wa-btn { background: #25D366; }
+        .call-btn { background: #007BFF; }
+
+        /* Footer */
+        footer { background: var(--dark-purple); color: white; text-align: center; padding: 20px; font-size: 14px; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Kept simple for mobile */
+            .hero-text h1 { font-size: 32px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Platform Body Frame -->
-    <div class="app-container">
-        
-        <!-- Header Section -->
-        <div class="app-header">
-            <div class="brand-title">JP PACKERS & MOVERS</div>
-            <div class="brand-tagline">SAFE • RELIABLE • ON TIME</div>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo"><i class="fa-solid fa-truck-fast"></i> JP PACKERS</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#process">Work Process</a>
+            <a href="tel:+919326029760" class="nav-call"><i class="fa-solid fa-phone"></i> 9326029760</a>
         </div>
+    </nav>
 
-        <!-- Dynamic Lead Generator Panel -->
-        <div class="app-body">
-            
-            <!-- Quick Selection Interface Tabs -->
-            <div class="services-section">
-                <div class="section-title">Select Logistics Type</div>
-                <div class="services-grid">
-                    <div class="service-card active" onclick="selectService(this, 'Home Shifting')">
-                        <i class="fa-solid fa-house-chimney"></i>
-                        <p>Home Shift</p>
-                    </div>
-                    <div class="service-card" onclick="selectService(this, 'Office Relocation')">
-                        <i class="fa-solid fa-building"></i>
-                        <p>Office Move</p>
-                    </div>
-                    <div class="service-card" onclick="selectService(this, 'Vehicle Shifting')">
-                        <i class="fa-solid fa-car"></i>
-                        <p>Vehicle</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive Route Coordinates Form Fields -->
-            <form id="quoteForm" onsubmit="sendToWhatsApp(event)">
-                
-                <div class="form-group">
-                    <label>Your Name</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" id="clientName" class="form-control" placeholder="Enter full name" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Pickup Location</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <input type="text" id="pickupLoc" class="form-control" placeholder="From: Area or City" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Drop Location</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-location-crosshairs"></i>
-                        <input type="text" id="dropLoc" class="form-control" placeholder="To: Destination Area or City" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Household Inventory Size</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-box-open"></i>
-                        <select id="houseSize" class="form-control" required>
-                            <option value="1 BHK">1 BHK Apartment</option>
-                            <option value="2 BHK">2 BHK Apartment</option>
-                            <option value="3 BHK">3 BHK Apartment</option>
-                            <option value="1 RK / Studio">1 RK / Studio Flat</option>
-                            <option value="Commercial Office">Commercial Corporate Space</option>
-                            <option value="Few Core Items Only">Few Selected Items Only</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Movement Allocation Date</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <input type="date" id="shiftDate" class="form-control" required>
-                    </div>
-                </div>
-
-                <!-- Instant Dispatch Form Trigger -->
-                <button type="submit" class="btn-submit">
-                    <i class="fa-brands fa-whatsapp"></i> Get Instant WhatsApp Quote
-                </button>
-            </form>
-
-        </div>
-
-        <!-- Fixed App Footer Metadata Banner -->
-        <div class="app-footer">
-            <div class="footer-line">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>F-32, Near Dindoshi Depot, Malad East, Mum-400097</span>
-            </div>
-            <div class="footer-line">
-                <i class="fa-solid fa-envelope"></i>
-                <span>jppmofficial@gmail.com</span>
-            </div>
-            <div class="footer-line">
-                <i class="fa-solid fa-phone"></i>
-                <span>+91 9326029760</span>
-            </div>
-        </div>
-
+    <!-- Floating Buttons for Instant Contact -->
+    <div class="floating-btns">
+        <a href="https://wa.me/919326029760?text=Hi%20JP%20Packers%20&%20Movers,%20I%20need%20details%20for%20shifting!" class="float-btn wa-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:+919326029760" class="float-btn call-btn"><i class="fa-solid fa-phone-volume"></i></a>
     </div>
 
-    <!-- Active Routing Control Script Engine -->
+    <!-- Home Banner & Form -->
+    <section id="home" class="hero animate">
+        <div class="hero-text">
+            <h1>India's Most Trusted & Secure Relocation Partner</h1>
+            <p>We combine advanced technology with a professional crew for the safe, zero-damage transit of your belongings anywhere in India.</p>
+            <p><i class="fa-solid fa-check-circle" style="color:var(--accent);"></i> 100% Safe Packaging<br>
+               <i class="fa-solid fa-check-circle" style="color:var(--accent);"></i> On-Time Delivery Guaranteed<br>
+               <i class="fa-solid fa-check-circle" style="color:var(--accent);"></i> Affordable Pricing with No Hidden Costs</p>
+        </div>
+
+        <div class="form-box">
+            <h3>Get a Free Quote Now</h3>
+            <form onsubmit="sendToWhatsApp(event)">
+                <div class="input-group">
+                    <input type="text" id="clientName" placeholder="Your Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="contactNum" placeholder="10-Digit Mobile Number" required pattern="[0-9]{10}">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="pickupLoc" placeholder="Pickup Address / City" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="dropLoc" placeholder="Drop Address / City" required>
+                </div>
+                <div class="input-group">
+                    <select id="houseSize" required>
+                        <option value="" disabled selected>Select Shifting Size</option>
+                        <option value="1 BHK">1 BHK Home</option>
+                        <option value="2 BHK">2 BHK Home</option>
+                        <option value="3+ BHK">3+ BHK Home</option>
+                        <option value="Office/Commercial">Office/Commercial</option>
+                        <option value="Car/Bike">Vehicle (Car/Bike)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <input type="date" id="shiftDate" required>
+                </div>
+                <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Send to WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-light animate">
+        <h2 class="section-title">Our Premium Services</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-house-chimney"></i>
+                <h4>Home Shifting</h4>
+                <p>Complete household packing and moving with multi-layer bubble wrap protection.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-building"></i>
+                <h4>Office Relocation</h4>
+                <p>Safe shifting of computers, desks, and sensitive business files with zero downtime.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-car"></i>
+                <h4>Vehicle Transportation</h4>
+                <p>Specialized enclosed trailers to ship your cars and bikes without a single scratch.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-warehouse"></i>
+                <h4>Secure Storage</h4>
+                <p>24/7 CCTV-monitored warehouse facilities for your short and long-term storage needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Process Section -->
+    <section id="process" class="section animate">
+        <h2 class="section-title">How We Work</h2>
+        <div class="grid">
+            <div class="card" style="border-bottom: 4px solid var(--accent);">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h4>1. Booking & Quote</h4>
+                <p>Fill our form or call us. We analyze your load and give an instant fixed quote.</p>
+            </div>
+            <div class="card" style="border-bottom: 4px solid var(--accent);">
+                <i class="fa-solid fa-box-open"></i>
+                <h4>2. Expert Packing</h4>
+                <p>Our trained crew arrives and packs everything securely using premium materials.</p>
+            </div>
+            <div class="card" style="border-bottom: 4px solid var(--accent);">
+                <i class="fa-solid fa-truck-moving"></i>
+                <h4>3. Safe Transit</h4>
+                <p>Your goods are loaded carefully into our specialized closed-body trucks.</p>
+            </div>
+            <div class="card" style="border-bottom: 4px solid var(--accent);">
+                <i class="fa-solid fa-house-circle-check"></i>
+                <h4>4. Unloading & Setup</h4>
+                <p>We deliver, unload, and help you place your items safely in your new home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section bg-light animate">
+        <h2 class="section-title">About JP Packers & Movers</h2>
+        <p style="max-width: 800px; margin: auto; line-height: 1.8; font-size: 16px;">
+            We are dedicated to providing stress-free, fast, and secure logistics solutions across India. 
+            Whether you are moving locally within Mumbai or across the country, our experienced team treats your valuable possessions 
+            like our own. With round-the-clock customer support and advanced packing techniques, we guarantee complete satisfaction.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>JP Packers & Movers</strong> | Safe • Reliable • On-Time</p>
+        <p><i class="fa-solid fa-location-dot"></i> F-32, Near Dindoshi Depot, Malad East, Mumbai - 400097</p>
+        <p><i class="fa-solid fa-envelope"></i> jppmofficial@gmail.com | <i class="fa-solid fa-phone"></i> +91 9326029760</p>
+        <p style="margin-top: 15px; font-size: 12px; opacity: 0.6;">&copy; 2026 JP Packers & Movers. All Rights Reserved.</p>
+    </footer>
+
+    <!-- WhatsApp Engine Logic -->
     <script>
-        let selectedServiceType = "Home Shifting";
-
-        function selectService(element, serviceName) {
-            // Remove active style state from all grids
-            document.querySelectorAll('.service-card').forEach(card => card.classList.remove('active'));
-            // Assign active target pointer state
-            element.classList.add('active');
-            selectedServiceType = serviceName;
-        }
-
         function sendToWhatsApp(event) {
-            event.preventDefault();
+            event.preventDefault(); // Stops page from reloading
 
-            // Extract values directly from client input nodes
+            // Get exact data from form
             const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('contactNum').value;
             const pickup = document.getElementById('pickupLoc').value;
             const drop = document.getElementById('dropLoc').value;
             const size = document.getElementById('houseSize').value;
             const date = document.getElementById('shiftDate').value;
 
-            // Clean string payload for API transport formatting
-            const message = `*NEW BOOKING ENQUIRY - JP PACKERS & MOVERS*%0A%0A` +
-                            `👤 *Client Name:* ${name}%0A` +
-                            `📦 *Service:* ${selectedServiceType}%0A` +
-                            `📍 *Pickup From:* ${pickup}%0A` +
-                            `🏁 *Drop To:* ${drop}%0A` +
-                            `🏠 *Size:* ${size}%0A` +
-                            `📅 *Shifting Date:* ${date}`;
+            // Build the WhatsApp message format
+            const message = `*NEW WEBSITE LEAD - JP PACKERS & MOVERS*%0A%0A` +
+                            `👤 *Name:* ${name}%0A` +
+                            `📞 *Contact Number:* ${phone}%0A` +
+                            `📍 *Pickup:* ${pickup}%0A` +
+                            `🏁 *Drop:* ${drop}%0A` +
+                            `🏠 *Shifting Size:* ${size}%0A` +
+                            `📅 *Date:* ${date}`;
 
-            // Redirects transaction parameter tracking payload directly to your number
+            // Send to your EXACT number: 9326029760
             const whatsappUrl = `https://wa.me/919326029760?text=${message}`;
+            
+            // Open WhatsApp in a new tab
             window.open(whatsappUrl, '_blank');
         }
+
+        // Simple script to trigger animations when scrolling down
+        document.addEventListener("scroll", function() {
+            const elements = document.querySelectorAll('.animate');
+            const windowHeight = window.innerHeight;
+            elements.forEach(el => {
+                const position = el.getBoundingClientRect().top;
+                if(position < windowHeight - 50) {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                }
+            });
+        });
     </script>
 </body>
 </html>
