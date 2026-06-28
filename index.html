@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- ADVANCED MUMBAI GEO-TARGETED SEO INFRASTRUCTURE -->
     <title>JP Packers & Movers | Best Packers and Movers in Mumbai</title>
     <meta name="description" content="JP Packers & Movers is Mumbai's most trusted partner for home shifting, office relocation, car/bike transport, and packing services. Safe, reliable, and on-time delivery across Mumbai.">
     <meta name="keywords" content="JP packers and movers, packers and movers in mumbai, home shifting mumbai, office relocation mumbai, best packers malad, cheap shifting bandra, safe movers and packers mumbai">
@@ -13,6 +14,7 @@
     <meta name="geo.position" content="19.1197;72.8464">
     <meta name="ICBM" content="19.1197, 72.8464">
 
+    <!-- FontAwesome Premium Icons & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     
@@ -73,7 +75,7 @@
         }
         .btn-submit:hover { background: #1EBE55; }
 
-        /* Real-Time Background Formspree/Web3Forms Response Feedback Banner */
+        /* Real-Time Background Form Response Feedback Banner */
         #successMessage {
             display: none; color: var(--success-green); font-weight: bold; text-align: center;
             margin-top: 15px; font-size: 13px; line-height: 1.4; border: 2px dashed var(--success-green);
@@ -134,6 +136,7 @@
 </head>
 <body>
 
+    <!-- Responsive Layout Navigation Bar Header -->
     <nav>
         <div class="logo">
             <img src="logo.png" alt="JP Packers & Movers Logo"> 
@@ -147,6 +150,7 @@
         </div>
     </nav>
 
+    <!-- Anchored Communication Triggers -->
     <div class="floating-btns">
         <a href="https://wa.me/919326029760?text=Hii,%20JP%20packers%20and%20movers%20i'm%20looking%20for%20shifting" class="float-btn wa-btn" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
@@ -156,6 +160,7 @@
         </a>
     </div>
 
+    <!-- Hero Matrix Section Block -->
     <section id="home" class="hero">
         <div class="hero-text">
             <h1>Safe, Smart & Secure Home Relocation Portal</h1>
@@ -195,6 +200,7 @@
         </div>
     </section>
 
+    <!-- Photo Media Gallery Section -->
     <section id="gallery" class="section">
         <h2 class="section-title">Our Work Gallery</h2>
         <div class="gallery-grid">
@@ -213,6 +219,7 @@
         </div>
     </section>
 
+    <!-- Client Reviews Section Layout Engine -->
     <section id="reviews" class="section bg-light">
         <h2 class="section-title">Client Reviews (<span id="reviewCountText">63</span>)</h2>
         
@@ -228,6 +235,7 @@
         </div>
 
         <div class="review-list" id="reviewContainer">
+            <!-- Starting Baseline Primary Feed Nodes -->
             <div class="review-card">
                 <div class="review-stars">⭐⭐⭐⭐⭐</div>
                 <strong>Rahul Sharma (Andheri East)</strong>
@@ -249,6 +257,7 @@
                 <p>Best packers and movers in Mumbai. Shifted my entire 2 BHK household furniture within 6 hours smoothly.</p>
             </div>
 
+            <!-- DYNAMIC REVIEWS FEED FOR TARGETED REDUCTION OF MOBILE LOAD TIME -->
             <div class="review-card hidden"><div class="review-stars">⭐⭐⭐⭐⭐</div><strong>Amit Mishra (Andheri West)</strong><p>Best experience moving from Andheri to Borivali. The staff was incredibly well behaved and wrapped everything safely.</p></div>
             <div class="review-card hidden"><div class="review-stars">⭐⭐⭐⭐⭐</div><strong>Priya Nair (Bandra West)</strong><p>Completely stress free relocation. No hidden charges were asked at the destination. Highly recommended JP Packers!</p></div>
             <div class="review-card hidden"><div class="review-stars">⭐⭐⭐⭐⭐</div><strong>Rohan Deshmukh (Borivali West)</strong><p>Shifted my 2 BHK furniture. Glass dining table and delicate mirror wardrobes arrived without a single scratch.</p></div>
@@ -269,14 +278,15 @@
         <button class="btn-more" id="loadMoreBtn" onclick="loadMoreReviews()">Load More Reviews</button>
     </section>
 
+    <!-- Footer Area Branding Block -->
     <footer>
         <p><strong>JP Packers & Movers</strong> | Safe • Reliable • On-Time</p>
         <p><i class="fa-solid fa-location-dot"></i> F-32, Near Dindoshi Depot, Malad East, Mumbai - 400097</p>
         <p>&copy; 2026 JP Packers & Movers. All Rights Reserved.</p>
     </footer>
 
+    <!-- Execution Logic Automation Layer -->
     <script>
-        // Track master count state dynamically
         let totalReviewsCount = 63;
 
         function handleSubmit(event) {
@@ -304,7 +314,6 @@
 
         function loadMoreReviews() {
             const hiddenReviews = document.querySelectorAll('.review-card.hidden');
-            // Expand sub-feed list sequentially in blocks of 5
             for(let i = 0; i < 5 && i < hiddenReviews.length; i++) {
                 hiddenReviews[i].classList.remove('hidden');
             }
@@ -333,11 +342,9 @@
             
             container.insertBefore(newCard, container.firstChild);
             
-            // Clear input metrics
             document.getElementById('revName').value = "";
             document.getElementById('revText').value = "";
 
-            // Safely increment and update node metric content parameters dynamically
             totalReviewsCount++;
             document.getElementById('reviewCountText').innerText = totalReviewsCount;
             alert("Thank you! Your shifting rating parameter has been appended to our live client registry.");
